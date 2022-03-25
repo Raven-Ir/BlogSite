@@ -8,7 +8,6 @@ const useAxiosPrivate = () => {
         const requestIntercept = axiosPrivate.interceptors.request.use(
             config => {
                 if (!config.headers['Authorization']) {
-                    console.log("here");
                     config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
                 }
                 return config;
